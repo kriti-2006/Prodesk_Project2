@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
+  "engines": {
+  "node": "20.x"
+  },
   "scripts": {
     "build": "node scripts/build-bundle.mjs",
     "test": "node test-runtime.mjs && node test-reload.mjs",
