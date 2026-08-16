@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Page Not Found – Prodesk Cloud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Synchronous pre-paint theme initialization to prevent theme flicker on boot -->
+  <script>
+    (function () {
+      var KEY = 'prodesk:app-state';
+      var preference = 'system';
+
+      try {
+        var raw = window.localStorage.getItem(KEY);
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          var stored = parsed && parsed.preferences && parsed.preferences.theme;
+          if (stored === 'light' || stored === 'dark' || stored === 'system') {
+            preference = stored;
+          }
+        }
+      } catch (error) {
+        // Fall back to system default
+      }
+
+      var effective = preference;
+      if (preference === 'system') {
+        effective =
+          window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+      }
+
+      var root = document.documentElement;
+      root.classList.toggle('theme--dark', effective === 'dark');
+      root.classList.toggle('theme--light', effective === 'light');
+      root.dataset.themePreference = preference;
+      root.style.colorScheme = effective;
+
+      // ── AUTOFOCUS / AUTOFILL SCROLL JUMP GUARD ──────────────────────────────
+      var interacted = false;
+      window.addEventListener('pointerdown', function () { interacted = true; }, { capture: true, passive: true });
+      window.addEventListener('keydown', function () { interacted = true; }, { capture: true, passive: true });
+
+      function safeScrollToTop() {
+        try {
+          window.scrollTo(0, 0);
+        } catch (e) {}
+      }
+
+      document.addEventListener('focus', function (event) {
+        if (interacted) return;
+        var target = event.target;
+        if (target && target.tagName === 'INPUT') {
+          var type = (target.getAttribute('type') || 'text').toLowerCase();
+          if (type === 'email' || type === 'text') {
+            target.blur();
+            safeScrollToTop();
+            setTimeout(function () {
+              if (!interacted) safeScrollToTop();
+            }, 20);
+          }
+        }
+      }, { capture: true });
+
+      window.addEventListener('load', function () {
+        if (!interacted) {
+          safeScrollToTop();
+          setTimeout(function () {
+            if (!interacted) safeScrollToTop();
+          }, 50);
+        }
+      });
+    })();
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .error-layout {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-6);
+      background: radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241, 0.08), transparent 70%), var(--color-bg);
+    }
+
+    .error-card {
+      max-width: 28rem;
+      width: 100%;
+      text-align: center;
+      align-items: center;
+      padding: var(--space-8) var(--space-6);
+    }
+
+    .error-badge {
+      display: inline-block;
+      padding: var(--space-2) var(--space-4);
+      background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+      color: var(--color-primary);
+      border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      margin-bottom: var(--space-4);
+    }
+
+    .error-title {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-bottom: var(--space-3);
+    }
+
+    .error-body {
+      font-size: var(--font-size-md);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+      line-height: 1.5;
+    }
+
+    .error-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-md);
+      background-color: var(--color-primary);
+      color: var(--color-on-primary);
+      font-weight: 500;
+      transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+    }
+
+    .error-btn:hover {
+      background-color: var(--color-primary-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="error-layout" id="main-content">
+    <div class="card error-card">
+      <span class="error-badge">404 Error</span>
+      <h1 class="error-title">Page not found</h1>
+      <p class="error-body">
+        The page you are looking for doesn't exist or has been moved. Check the URL or return to our homepage.
+      </p>
+      <a href="index.html" class="error-btn">
+        Return to Home
+      </a>
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en" class="no-transitions">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Prodesk Cloud – Enterprise Analytics for Modern Teams</title>
+  <meta name="description" content="Prodesk Cloud helps modern product teams ship with confidence using real-time analytics, dashboards, alerts, and workflows built on your product data." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Synchronous pre-paint theme initialization to prevent theme flicker on boot -->
+  <script>
+    (function () {
+      // ── BASE PATH FIX ──────────────────────────────────────────────────────
+      // window.location.href is correct regardless of server root.
+      // e.g. http://127.0.0.1:5500/PRODESK/index.html
+      //   -> base = 'http://127.0.0.1:5500/PRODESK/'
+      // e.g. http://127.0.0.1:5500/index.html
+      //   -> base = 'http://127.0.0.1:5500/'
+      var base = window.location.href.replace(/[^\/]*$/, '');
+      window.__PRODESK_BASE__ = base;
+
+      // Fix favicon <link> hrefs that were written as bare relative paths.
+      // This runs synchronously in <head>, before the browser requests them.
+      var links = document.head.getElementsByTagName('link');
+      for (var li = 0; li < links.length; li++) {
+        var rel = (links[li].rel || '').toLowerCase();
+        if (rel.indexOf('icon') !== -1 || rel === 'apple-touch-icon') {
+          var origHref = links[li].getAttribute('href') || '';
+          if (origHref && origHref.indexOf('://') === -1) {
+            links[li].href = base + origHref;
+          }
+        }
+      }
+
+      // ── THEME RESTORE ──────────────────────────────────────────────────────
+      var KEY = 'prodesk:app-state';
+      var preference = 'system';
+
+      try {
+        var raw = window.localStorage.getItem(KEY);
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          var stored = parsed && parsed.preferences && parsed.preferences.theme;
+          if (stored === 'light' || stored === 'dark' || stored === 'system') {
+            preference = stored;
+          }
+        }
+      } catch (error) {
+        /* private mode or corrupt payload — fall through to system */
+      }
+
+      var effective = preference;
+      if (preference === 'system') {
+        effective =
+          window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+      }
+
+      var root = document.documentElement;
+      // BOTH classes are applied explicitly. Sprint 1 only had .theme--dark, so
+      // on a dark-OS machine choosing "light" removed the class and left the
+      // dark :root defaults in place — the light theme silently did nothing.
+      root.classList.toggle('theme--dark', effective === 'dark');
+      root.classList.toggle('theme--light', effective === 'light');
+      root.dataset.themePreference = preference;
+      root.style.colorScheme = effective;
+
+      // ── AUTOFOCUS / AUTOFILL SCROLL JUMP GUARD ──────────────────────────────
+      var interacted = false;
+      window.addEventListener('pointerdown', function () { interacted = true; }, { capture: true, passive: true });
+      window.addEventListener('keydown', function () { interacted = true; }, { capture: true, passive: true });
+
+      function safeScrollToTop() {
+        try {
+          window.scrollTo(0, 0);
+        } catch (e) {}
+      }
+
+      document.addEventListener('focus', function (event) {
+        if (interacted) return;
+        var target = event.target;
+        if (target && target.tagName === 'INPUT') {
+          var type = (target.getAttribute('type') || 'text').toLowerCase();
+          if (type === 'email' || type === 'text') {
+            target.blur();
+            safeScrollToTop();
+            setTimeout(function () {
+              if (!interacted) safeScrollToTop();
+            }, 20);
+          }
+        }
+      }, { capture: true });
+
+      window.addEventListener('load', function () {
+        if (!interacted) {
+          safeScrollToTop();
+          setTimeout(function () {
+            if (!interacted) safeScrollToTop();
+          }, 50);
+        }
+      });
+    })();
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/prodesk-cloud" />
+  <meta property="og:title" content="Prodesk Cloud – Enterprise Analytics for Modern Teams" />
+  <meta property="og:description" content="Connect your product data, build real-time dashboards, and align product, growth, and revenue teams around a shared source of truth." />
+  <meta property="og:image" content="assets/images/og-preview.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prodesk Cloud – Enterprise Analytics for Modern Teams" />
+  <meta name="twitter:description" content="Real-time dashboards, alerts, and workflows for product-led teams." />
+  <meta name="twitter:image" content="assets/images/og-preview.webp" />
+
+  <!-- Favicon — now points at the favicon assets that shipped but went unused -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/icons/logo.png" />
+
+  <link rel="canonical" href="https://example.com/prodesk-cloud" />
+  <meta name="theme-color" content="#6366f1" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ==========================================================================
+       From here down, the markup is STRUCTURE ONLY.
+
+       Every element carrying data-component is an empty mount point that its
+       component fills from content.json. Landmarks, section ids, and heading
+       hierarchy stay in HTML so the document outline is valid before hydration
+       and anchor links resolve without JavaScript.
+       ========================================================================== -->
+
+  <header class="header">
+    <div class="container header__inner">
+      <nav class="nav" aria-label="Primary" data-component="navigation">
+        <a href="#hero" class="nav__brand" aria-label="Prodesk Cloud home">
+          <img id="nav-brand-logo" class="nav__logo-img" src="assets/icons/logo.png" alt="Prodesk Cloud logo" width="32" height="32" />
+          <span class="nav__brand-text">
+            Prodesk <span class="nav__brand-highlight">Cloud</span>
+          </span>
+        </a>
+
+        <button class="nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
+          <span class="nav__toggle-icon nav__toggle-icon--open" aria-hidden="true">☰</span>
+          <span class="nav__toggle-icon nav__toggle-icon--close" aria-hidden="true">✕</span>
+        </button>
+
+        <!-- Hydrated by Navigation: links + actions + theme toggle -->
+        <div class="nav__menu" id="primary-menu"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="hero" class="hero">
+      <div class="container hero__inner" data-component="hero"></div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container section__inner" data-component="features"></div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container section__inner" data-component="services"></div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="container section__inner" data-component="why"></div>
+    </section>
+
+    <section id="stats" class="section">
+      <div class="container section__inner" data-component="stats"></div>
+    </section>
+
+    <section id="testimonials" class="section">
+      <div class="container section__inner" data-component="testimonials"></div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="container section__inner" data-component="pricing"></div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container section__inner" data-component="faq"></div>
+    </section>
+
+    <section id="contact-cta" class="section">
+      <div class="container contact-cta__inner" data-component="contact"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner" data-component="footer"></div>
+  </footer>
+
+  <!-- Bundle: all modules concatenated in dependency order.
+       Plain defer script works on any static server without MIME or CORS concerns. -->
+  <script defer src="bundle.js"></script>
+
+  <noscript>
+    <div class="container">
+      <p>Prodesk Cloud renders its content with JavaScript. Enable JavaScript, or contact
+        <a href="mailto:hello@prodesk.cloud">hello@prodesk.cloud</a> and we will send a static summary.</p>
+    </div>
+  </noscript>
+</body>
+
+</html>
