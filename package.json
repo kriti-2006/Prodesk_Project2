@@ -1,0 +1,15 @@
+{
+  "name": "prodesk-cloud",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-bundle.mjs",
+    "test": "node test-runtime.mjs && node test-reload.mjs",
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "dependencies": {
+    "jsdom": "^30.0.1"
+  }
+}
