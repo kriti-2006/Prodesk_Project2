@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "brandName": "Prodesk",
+    "brandHighlight": "Cloud",
+    "logo": "assets/icons/logo.png",
+    "copyright": "Prodesk Cloud. All rights reserved."
+  },
+  "nav": {
+    "ariaLabel": "Primary",
+    "links": [
+      { "id": "nav-features", "label": "Features", "href": "#features" },
+      { "id": "nav-services", "label": "Services", "href": "#services" },
+      { "id": "nav-why", "label": "Why Prodesk", "href": "#why" },
+      { "id": "nav-pricing", "label": "Pricing", "href": "#pricing" },
+      { "id": "nav-faq", "label": "FAQ", "href": "#faq" }
+    ],
+    "actions": [
+      { "id": "nav-cta-sales", "label": "Talk to sales", "href": "#contact-cta", "variant": "ghost" },
+      { "id": "nav-cta-start", "label": "Get started", "href": "#pricing", "variant": "primary" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Real-time product analytics",
+    "title": "Enterprise analytics for modern teams",
+    "subtitle": "Prodesk Cloud connects your product data, enriches it in real time, and gives teams the dashboards, alerts, and workflows they need to ship with confidence.",
+    "actions": [
+      { "id": "hero-cta-trial", "label": "Start free trial", "href": "#pricing", "variant": "primary" },
+      { "id": "hero-cta-sales", "label": "Talk to sales", "href": "#contact-cta", "variant": "ghost" }
+    ],
+    "meta": [
+      { "id": "hero-meta-uptime", "label": "99.99% platform uptime" },
+      { "id": "hero-meta-speed", "label": "2.5x faster time to insight" },
+      { "id": "hero-meta-teams", "label": "Trusted by 120+ product teams" }
+    ],
+    "image": {
+      "src": "assets/images/hero-dashboard.webp",
+      "alt": "Analytics dashboard showing product usage metrics, conversion funnels, and retention curves.",
+      "width": 1024,
+      "height": 1024
+    }
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title": "Real-time dashboards out of the box",
+    "subtitle": "Monitor signups, retention, funnels, and feature adoption with live, streaming dashboards.",
+    "items": [
+      {
+        "id": "feature-streaming",
+        "title": "Streaming product analytics",
+        "body": "Capture and route product events to your warehouse, BI tools, and CDP without custom scripts."
+      },
+      {
+        "id": "feature-alerts",
+        "title": "Intelligent alerts",
+        "body": "Get notified only when metrics behave abnormally, with built-in anomaly detection and context."
+      },
+      {
+        "id": "feature-instrumentation",
+        "title": "Guided instrumentation",
+        "body": "Work with solutions engineers to define events, tracking plans, and dashboards teams can trust."
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "From integration to adoption",
+    "subtitle": "Our team works with you from first event to first experiment, so you never ship dashboards in the dark.",
+    "items": [
+      {
+        "id": "service-migration",
+        "title": "Implementation & migration",
+        "body": "Migrate from legacy tools, connect sources, and launch your core dashboards in under a week."
+      },
+      {
+        "id": "service-governance",
+        "title": "Governance & reliability",
+        "body": "Establish tracking plans, data contracts, and SLAs so stakeholders trust every metric."
+      },
+      {
+        "id": "service-enablement",
+        "title": "Enablement & training",
+        "body": "Upskill product, growth, and customer teams with hands-on workshops, demos, and office hours."
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Why Prodesk Cloud",
+    "title": "A shared source of truth for product-led teams",
+    "subtitle": "Align product, growth, and revenue around the same dashboards, the same metrics, and the same experiments.",
+    "items": [
+      {
+        "id": "why-stacks",
+        "title": "Built for modern stacks",
+        "body": "Prodesk Cloud integrates with warehouses, CDPs, and messaging providers so you can keep your current stack and centralize your metrics."
+      },
+      {
+        "id": "why-controls",
+        "title": "Enterprise-grade controls",
+        "body": "Single sign-on, audit logs, and regional data residency help you ship with governance in mind."
+      },
+      {
+        "id": "why-reliability",
+        "title": "Operational reliability",
+        "body": "Enterprise SLAs, global edge infrastructure, and automated incident response keep your dashboards online."
+      }
+    ],
+    "aside": {
+      "ariaLabel": "Companies using Prodesk Cloud",
+      "label": "Teams that trust Prodesk Cloud",
+      "pills": ["Product-led SaaS", "Marketplaces", "Fintech", "Developer tools"]
+    }
+  },
+  "stats": {
+    "eyebrow": "Impact",
+    "title": "Outcomes our teams report",
+    "items": [
+      {
+        "id": "stat-uptime",
+        "value": 99.99,
+        "decimals": 2,
+        "prefix": "",
+        "suffix": "%",
+        "label": "Platform uptime"
+      },
+      {
+        "id": "stat-speed",
+        "value": 2.5,
+        "decimals": 1,
+        "prefix": "",
+        "suffix": "x",
+        "label": "Faster time to insight"
+      },
+      {
+        "id": "stat-adoption",
+        "value": 45,
+        "decimals": 0,
+        "prefix": "",
+        "suffix": "%",
+        "label": "Average feature adoption lift"
+      },
+      {
+        "id": "stat-migrated",
+        "value": 120,
+        "decimals": 0,
+        "prefix": "+",
+        "suffix": "",
+        "label": "Teams migrated from legacy tools"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Customer Success",
+    "title": "Trusted by data-driven teams",
+    "items": [
+      {
+        "id": "testimonial-1",
+        "quote": "Prodesk Cloud completely unified our fragmented data stack. Our product, engineering, and revenue teams finally have a single source of truth that updates in real-time.",
+        "name": "Sarah Jenkins",
+        "role": "Director of Data Platform, NexusFlow",
+        "avatar": "assets/images/testimonial-1.webp",
+        "avatarAlt": "Sarah Jenkins, Director of Data Platform at NexusFlow"
+      },
+      {
+        "id": "testimonial-2",
+        "quote": "We transitioned from relying on batch processing to running live, structured experiments. The querying engine is incredibly fast, trustworthy, and heavily adopted across the org.",
+        "name": "David Park",
+        "role": "Lead Analytics Engineer, ScaleGrid",
+        "avatar": "assets/images/testimonial-2.webp",
+        "avatarAlt": "David Park, Lead Analytics Engineer at ScaleGrid"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Start where you are, scale when you're ready",
+    "subtitle": "Transparent plans for growing teams, with enterprise options when you need deeper control.",
+    "billing": {
+      "monthlyLabel": "Monthly",
+      "annualLabel": "Annual",
+      "annualNote": "Save 20% billed annually"
+    },
+    "plans": [
+      {
+        "id": "plan-growth",
+        "title": "Growth",
+        "priceMonthly": 49,
+        "priceAnnual": 39,
+        "currency": "$",
+        "period": "/ month",
+        "featured": false,
+        "features": ["Up to 5 seats", "Core product dashboards", "Email support"],
+        "cta": { "label": "Talk to sales", "href": "#contact-cta", "variant": "ghost" }
+      },
+      {
+        "id": "plan-scale",
+        "title": "Scale",
+        "priceMonthly": 199,
+        "priceAnnual": 159,
+        "currency": "$",
+        "period": "/ month",
+        "featured": true,
+        "features": ["Unlimited seats", "Advanced experimentation", "Dedicated CSM"],
+        "cta": { "label": "Get started", "href": "#contact-cta", "variant": "primary" }
+      },
+      {
+        "id": "plan-enterprise",
+        "title": "Enterprise",
+        "priceMonthly": null,
+        "priceAnnual": null,
+        "customPrice": "Let's talk",
+        "currency": "$",
+        "period": "",
+        "featured": false,
+        "features": [
+          "Custom SLAs & security review",
+          "Regional data residency",
+          "Solution engineering support"
+        ],
+        "cta": { "label": "Contact us", "href": "#contact-cta", "variant": "ghost" }
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Answers to common questions",
+    "items": [
+      {
+        "id": "faq-golive",
+        "question": "How quickly can we go live?",
+        "answer": "Most teams connect their sources, define core events, and ship their first dashboards in under a week. Smaller teams can often go live the same day."
+      },
+      {
+        "id": "faq-integrate",
+        "question": "How does Prodesk Cloud integrate with our stack?",
+        "answer": "Prodesk Cloud integrates with modern warehouses, CDPs, and messaging providers so you can keep your current stack and centralize your metrics."
+      },
+      {
+        "id": "faq-security",
+        "question": "What about security and compliance?",
+        "answer": "We offer SSO, audit logs, data residency options, and strict access controls. Our team can work with your security and legal stakeholders during evaluation."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Ready to see Prodesk Cloud in action?",
+    "subtitle": "Share a few details about your team and we'll follow up with a tailored walkthrough and rollout plan.",
+    "endpoint": "https://formspree.io/f/xykqlkea",
+    "submitLabel": "Request a walkthrough",
+    "submittingLabel": "Sending…",
+    "successLabel": "Request sent",
+    "fields": [
+      {
+        "id": "contact-name",
+        "name": "name",
+        "label": "Full name",
+        "type": "text",
+        "autocomplete": "name",
+        "required": true,
+        "placeholder": "Alex Rivera"
+      },
+      {
+        "id": "contact-email",
+        "name": "email",
+        "label": "Work email",
+        "type": "email",
+        "autocomplete": "email",
+        "required": true,
+        "placeholder": "alex@company.com"
+      },
+      {
+        "id": "contact-company",
+        "name": "company",
+        "label": "Company",
+        "type": "text",
+        "autocomplete": "organization",
+        "required": true,
+        "placeholder": "Your company name"
+      },
+      {
+        "id": "contact-message",
+        "name": "message",
+        "label": "What would you like to explore?",
+        "type": "textarea",
+        "rows": 4,
+        "required": false,
+        "placeholder": "Tell us about your product, stack, and goals."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Prodesk Cloud gives product-led teams the analytics, alerts, and workflows they need to ship confidently.",
+    "navAriaLabel": "Footer",
+    "groups": [
+      {
+        "id": "footer-product",
+        "title": "Product",
+        "links": [
+          { "label": "Features", "href": "#features" },
+          { "label": "Pricing", "href": "#pricing" },
+          { "label": "FAQ", "href": "#faq" }
+        ]
+      },
+      {
+        "id": "footer-company",
+        "title": "Company",
+        "links": [
+          { "label": "About", "href": "#why" },
+          { "label": "Contact", "href": "#contact-cta" }
+        ]
+      },
+      {
+        "id": "footer-resources",
+        "title": "Resources",
+        "links": [
+          { "label": "Docs", "href": "404.html" },
+          { "label": "Changelog", "href": "404.html" }
+        ]
+      }
+    ],
+    "subscribe": {
+      "label": "Stay in the loop",
+      "fieldLabel": "Join our product updates",
+      "placeholder": "you@company.com",
+      "endpoint": "https://formspree.io/f/xykqlkea",
+      "submitLabel": "Subscribe",
+      "submittingLabel": "Sending…",
+      "successLabel": "Subscribed ✓",
+      "errorLabel": "Try again"
+    },
+    "social": {
+      "ariaLabel": "Social links",
+      "links": [
+        { "id": "social-x", "short": "X", "label": "Visit Prodesk Cloud on X", "href": "https://twitter.com/prodeskcloud" },
+        { "id": "social-li", "short": "Li", "label": "Visit Prodesk Cloud on LinkedIn", "href": "https://linkedin.com/company/prodeskcloud" },
+        { "id": "social-gh", "short": "GH", "label": "Visit Prodesk Cloud on GitHub", "href": "https://github.com/prodeskcloud" }
+      ]
+    },
+    "legal": [
+      { "label": "Privacy", "href": "404.html" },
+      { "label": "Terms", "href": "404.html" },
+      { "label": "Security", "href": "404.html" }
+    ]
+  }
+}
